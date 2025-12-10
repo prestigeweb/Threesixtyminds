@@ -8,8 +8,10 @@
     "preview": "vite preview",
     "compile-scss": "sass scss/style.scss css/style.css"
   },
+  "dependencies": {
+    "sass": "^1.95.1"
+  },
   "devDependencies": {
-    "sass": "^1.95.1",
     "vite": "^5.0.0"
   }
 }
