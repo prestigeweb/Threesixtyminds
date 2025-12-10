@@ -4,9 +4,9 @@
   "description": "Ashley - Creative Agency Website",
   "scripts": {
     "dev": "vite",
-    "build": "sass scss/style.scss css/style.css && vite build",
+    "build": "npx sass scss/style.scss css/style.css && vite build",
     "preview": "vite preview",
-    "compile-scss": "sass scss/style.scss css/style.css"
+    "compile-scss": "npx sass scss/style.scss css/style.css"
   },
   "dependencies": {
     "sass": "^1.95.1"
