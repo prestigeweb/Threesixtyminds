@@ -1927,19 +1927,12 @@ footer
 ------------------------------------------- */
 
 footer .col-md-4:first-child {
-    text-align: right;
-
-    @media screen and (max-width: 768px) {
-        text-align: left;
-    }
-}
-
-.mil-subscribe-form {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
 
     @media screen and (max-width: 768px) {
-        justify-content: flex-start;
+        align-items: flex-start;
     }
 }
 
@@ -1989,6 +1982,7 @@ footer .col-md-4:first-child {
     position: relative;
     height: 70px;
     width: 100%;
+    max-width: 400px;
 
     & input {
         height: 100%;
