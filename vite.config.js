@@ -1,5 +1,23 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { copyFileSync, mkdirSync, readdirSync, statSync } from 'fs';
+import { join } from 'path';
+
+function copyDir(src, dest) {
+  mkdirSync(dest, { recursive: true });
+  const entries = readdirSync(src, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const srcPath = join(src, entry.name);
+    const destPath = join(dest, entry.name);
+
+    if (entry.isDirectory()) {
+      copyDir(srcPath, destPath);
+    } else {
+      copyFileSync(srcPath, destPath);
+    }
+  }
+}
 
 export default defineConfig({
   root: '.',
@@ -23,5 +41,15 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true
-  }
+  },
+  plugins: [
+    {
+      name: 'copy-assets',
+      closeBundle() {
+        copyDir('js', 'dist/js');
+        copyDir('css', 'dist/css');
+        copyDir('img', 'dist/img');
+      }
+    }
+  ]
 });
