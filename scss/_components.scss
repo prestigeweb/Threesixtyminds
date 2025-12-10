@@ -1926,6 +1926,23 @@ footer
 
 ------------------------------------------- */
 
+footer .col-md-4:first-child {
+    text-align: right;
+
+    @media screen and (max-width: 768px) {
+        text-align: left;
+    }
+}
+
+.mil-subscribe-form {
+    display: flex;
+    justify-content: flex-end;
+
+    @media screen and (max-width: 768px) {
+        justify-content: flex-start;
+    }
+}
+
 .mil-footer-menu {
     margin-bottom: 120px;
 
